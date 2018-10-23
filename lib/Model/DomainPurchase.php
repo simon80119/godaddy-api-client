@@ -73,7 +73,9 @@ class DomainPurchase implements ArrayAccess
         'contact_registrant' => '\GoDaddyDomainsClient\Model\Contact',
         'contact_admin' => '\GoDaddyDomainsClient\Model\Contact',
         'contact_tech' => '\GoDaddyDomainsClient\Model\Contact',
-        'contact_billing' => '\GoDaddyDomainsClient\Model\Contact'
+        'contact_billing' => '\GoDaddyDomainsClient\Model\Contact',
+        'intent' => 'string',
+        'entityType' => 'string'
     );
 
     public static function swaggerTypes()
@@ -95,7 +97,9 @@ class DomainPurchase implements ArrayAccess
         'contact_registrant' => 'contactRegistrant',
         'contact_admin' => 'contactAdmin',
         'contact_tech' => 'contactTech',
-        'contact_billing' => 'contactBilling'
+        'contact_billing' => 'contactBilling',
+        'intent' => 'intent',
+        'entityType' => 'entityType'
     );
 
     public static function attributeMap()
@@ -117,7 +121,9 @@ class DomainPurchase implements ArrayAccess
         'contact_registrant' => 'setContactRegistrant',
         'contact_admin' => 'setContactAdmin',
         'contact_tech' => 'setContactTech',
-        'contact_billing' => 'setContactBilling'
+        'contact_billing' => 'setContactBilling',
+        'intent' => 'setIntent',
+        'entityType' => 'setEntityType'
     );
 
     public static function setters()
@@ -139,7 +145,9 @@ class DomainPurchase implements ArrayAccess
         'contact_registrant' => 'getContactRegistrant',
         'contact_admin' => 'getContactAdmin',
         'contact_tech' => 'getContactTech',
-        'contact_billing' => 'getContactBilling'
+        'contact_billing' => 'getContactBilling',
+        'intent' => 'getIntent',
+        'entityType' => 'getEntityType'
     );
 
     public static function getters()
@@ -173,6 +181,9 @@ class DomainPurchase implements ArrayAccess
         $this->container['contact_admin'] = isset($data['contact_admin']) ? $data['contact_admin'] : null;
         $this->container['contact_tech'] = isset($data['contact_tech']) ? $data['contact_tech'] : null;
         $this->container['contact_billing'] = isset($data['contact_billing']) ? $data['contact_billing'] : null;
+        $this->container['intent'] = isset($data['intent']) ? $data['intent'] : null;
+        $this->container['entityType'] = isset($data['entityType']) ? $data['entityType'] : null;
+
     }
 
     /**
@@ -441,6 +452,46 @@ class DomainPurchase implements ArrayAccess
         return $this;
     }
     /**
+     * Gets intent
+     * @return string
+     */
+    public function getIntent()
+    {
+        return $this->container['intent'];
+    }
+
+    /**
+     * Sets intent
+     * @param string $intent The intended use of the domain
+     * @return $this
+     */
+    public function setIntent($intent)
+    {
+        $this->container['intent'] = $intent;
+
+        return $this;
+    }
+    /**
+     * Gets entityType
+     * @return string
+     */
+    public function getEntityType()
+    {
+        return $this->container['entityType'];
+    }
+
+    /**
+     * Sets entityType
+     * @param string $entityType Type of legal entity that best represents the Registrant. \nIf legal registrant is a person, use: CITIZEN, PERMANENT_RESIDENT or PRIMARY_DOMICILE. \nIf legal registrant is a company, use: INCORPORATED, FOREIGN_BUSINESS or FOREIGN_OFFICE
+     * @return $this
+     */
+    public function setEntityType($entityType)
+    {
+        $this->container['entityType'] = $entityType;
+
+        return $this;
+    }
+    /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset
      * @return boolean
@@ -498,5 +549,3 @@ class DomainPurchase implements ArrayAccess
         return json_encode(\GoDaddyDomainsClient\ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-
