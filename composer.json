@@ -22,5 +22,7 @@
     },
     "autoload": {
         "psr-4": { "GoDaddyDomainsClient\\" : "lib/" }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
