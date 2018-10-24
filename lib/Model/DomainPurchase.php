@@ -75,7 +75,8 @@ class DomainPurchase implements ArrayAccess
         'contact_tech' => '\GoDaddyDomainsClient\Model\Contact',
         'contact_billing' => '\GoDaddyDomainsClient\Model\Contact',
         'intent' => 'string',
-        'entityType' => 'string'
+        'entityType' => 'string',
+        'citizenship'=> 'string'
     );
 
     public static function swaggerTypes()
@@ -99,7 +100,8 @@ class DomainPurchase implements ArrayAccess
         'contact_tech' => 'contactTech',
         'contact_billing' => 'contactBilling',
         'intent' => 'intent',
-        'entityType' => 'entityType'
+        'entityType' => 'entityType',
+        'citizenship' => 'citizenship',
     );
 
     public static function attributeMap()
@@ -123,7 +125,8 @@ class DomainPurchase implements ArrayAccess
         'contact_tech' => 'setContactTech',
         'contact_billing' => 'setContactBilling',
         'intent' => 'setIntent',
-        'entityType' => 'setEntityType'
+        'entityType' => 'setEntityType',
+        'citizenship' => 'setCitizenship'
     );
 
     public static function setters()
@@ -147,7 +150,8 @@ class DomainPurchase implements ArrayAccess
         'contact_tech' => 'getContactTech',
         'contact_billing' => 'getContactBilling',
         'intent' => 'getIntent',
-        'entityType' => 'getEntityType'
+        'entityType' => 'getEntityType',
+        'citizenship' => 'getCitizenship',
     );
 
     public static function getters()
@@ -183,6 +187,7 @@ class DomainPurchase implements ArrayAccess
         $this->container['contact_billing'] = isset($data['contact_billing']) ? $data['contact_billing'] : null;
         $this->container['intent'] = isset($data['intent']) ? $data['intent'] : null;
         $this->container['entityType'] = isset($data['entityType']) ? $data['entityType'] : null;
+        $this->container['citizenship'] = isset($data['citizenship']) ? $data['citizenship'] : null;
 
     }
 
@@ -488,6 +493,26 @@ class DomainPurchase implements ArrayAccess
     public function setEntityType($entityType)
     {
         $this->container['entityType'] = $entityType;
+
+        return $this;
+    }
+    /**
+     * Gets citizenship
+     * @return string
+     */
+    public function getCitizenship()
+    {
+        return $this->container['citizenship'];
+    }
+
+    /**
+     * Sets citizenship
+     * @param string $citizenship
+     * @return $this
+     */
+    public function setCitizenship($citizenship)
+    {
+        $this->container['citizenship'] = $citizenship;
 
         return $this;
     }
